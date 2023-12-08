@@ -13,44 +13,52 @@ from river.tree import HoeffdingTreeClassifier
 from river.naive_bayes import GaussianNB
 from frouros_adapted.eddm import EDDM
 from river.metrics import Accuracy, CohenKappa
+from utils.load import load_frouros_detectors
 
 from evaluation.evaluation import evaluation_test,evaluation
 
-size=100
+size=1000
 
-#datasets, nominal_attributes = get_mixed_datasets(size, n=1)
-datasets, nominal_attributes = get_stagger_datasets(size, n=1)
+datasets, nominal_attributes = get_mixed_datasets(size, n=1)
 
-detector = EDDM()
+
+detectors =load_frouros_detectors(False, False, False, False, False, True, False, False, False, False, False, False, False, False)
 
 models={}
-models['HT_1']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=None),drift_detector=detector)
-models['HT_2']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector)
-models['NB_1']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
-models['NB_2']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
 
+for detector_name, detector in detectors.items():
+    models['HT_1']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=None),drift_detector=detector)
+    models['HT_2']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=None),drift_detector=detector)
+    #models['NB_1']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
+    #models['NB_2']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
 
+print("results for identical model without detector reset")
+for dataset_name, (dataset, size) in datasets.items():
+    for model_name, model in models.items():
+        results, time, memory = progressive_val_score(
+        dataset=dataset.take(size), 
+        model=model, 
+        metric=Accuracy()+CohenKappa(),
+        show_time=True,
+        show_memory=True,
+        print_every=size)
+
+        print(results)
+        
+print("results for identical model with detector reset")
 for dataset_name, (dataset, size) in datasets.items():
     for model_name, model in models.items():
         detector.reset()
         results, time, memory = progressive_val_score(
-            dataset=dataset.take(size), 
-            model=model, 
-            metric=Accuracy()+CohenKappa(),
-            show_time=True,
-            show_memory=True,
-            print_every=size)
-        
+        dataset=dataset.take(size), 
+        model=model, 
+        metric=Accuracy()+CohenKappa(),
+        show_time=True,
+        show_memory=True,
+        print_every=size)
+
         print(results)
         
-
-results = evaluation_test(datasets,nochange=False,majclass=False,nb=False)
-print(results)
-
-results = evaluation(datasets,nominal_attributes=nominal_attributes,nochange=False,majclass=False,nb=False,bole=False)
-print(results)
-
-results = evaluation(datasets,nochange=False,majclass=False,ht=False,bole=False)
-print(results)
+print('This shows that a reset of the detector is required!')
 
 
