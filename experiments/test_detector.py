@@ -24,7 +24,7 @@ datasets, nominal_attributes = get_stagger_datasets(size, n=1)
 detector = EDDM()
 
 models={}
-models['HT_1']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=nominal_attributes),drift_detector=detector)
+models['HT_1']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=None),drift_detector=detector)
 models['HT_2']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector)
 models['NB_1']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
 models['NB_2']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)

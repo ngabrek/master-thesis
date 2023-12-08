@@ -196,7 +196,8 @@ class KSWIN(BaseWindow):
                 data1=w_samples,
                 data2=r_samples,
                 alternative="two-sided",
-                method="auto",
+                #adaption: switch from "auto" to "asymp" to avoid RuntimeWarning, the method "auto" switches to "asymp" anyway for dataset sizes > 10.000
+                method="asymp",
             )
 
             if p_value <= self.config.alpha:  # type: ignore
