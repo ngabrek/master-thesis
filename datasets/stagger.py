@@ -49,21 +49,28 @@ def create_stagger_dataset(size:int,seed:int,gradual:bool):
         seed=seed, position=drift_interval, width=width)
 
 
-def get_stagger_datasets(size:int,gradual:bool=False,seed:int=23, n:int=30) -> dict:
+def get_stagger_datasets(size:int,gradual:bool=False,seed:int=23) -> dict:
     
     """This method collects the given number of dataset generated from the STAGGER stream generator with the given size, seed, and drift type (abrupt or gradual)"""
     
     #initiate dict to collect the datasets 
     datasets = {}
+    
     #get the right size of the dataset for its name in the dict, s.t. 10.000 instance are represented in name as '10K'
-    name = str(size//1000)
+    if size == 1_000_000: name = '1M'
+    else: name = str(size//1000) + 'K'
+    
+    #get the right number of datasets accoring to the dataset size 
+    if size >= 500_000: n = 10
+    else: n = 30
+    
     #get the concept drift type for the name in the dict 
     if gradual: drift ='gradual'
     else: drift = 'abrupt'
     
     #collect the given number of datasets and store them with their size and corresponding name in the dict 
     for i in range(0,2*n,2):
-        datasets[f'stagger_{drift}_' + name + 'K_'+str(i)] = (create_stagger_dataset(size, seed+i,gradual),size)
+        datasets[f'stagger_{drift}_' + name + '_'+str(i)] = (create_stagger_dataset(size, seed+i,gradual),size)
     
     #return the dict with all datasets
     return datasets, get_nominal_attributes()
