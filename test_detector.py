@@ -9,11 +9,11 @@ from river_adapted.progressive_validation import progressive_val_score
 from datasets.stagger import get_abrupt_stagger_datasets
 from river_adapted.retrain import DriftRetrainingClassifier
 from river.tree import HoeffdingTreeClassifier
+from river.naive_bayes import GaussianNB
 from frouros_adapted.eddm import EDDM
 from river.metrics import Accuracy, CohenKappa
 
-from evaluation.evaluation import evaluation_test
-
+from evaluation.evaluation import evaluation_test,evaluation
 
 size=100
 
@@ -24,6 +24,8 @@ detector = EDDM()
 models={}
 models['HT_1']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector)
 models['HT_2']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector)
+models['NB_1']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
+models['NB_2']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
 
 
 for dataset_name, (dataset, size) in datasets.items():
@@ -41,6 +43,12 @@ for dataset_name, (dataset, size) in datasets.items():
         
 
 results = evaluation_test(datasets,nochange=False,majclass=False,nb=False)
+print(results)
+
+results = evaluation(datasets,nominal_attributes=['shape'],nochange=False,majclass=False,nb=False,bole=False)
+print(results)
+
+results = evaluation(datasets,nochange=False,majclass=False,ht=False,bole=False)
 print(results)
 
 
