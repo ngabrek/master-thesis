@@ -21,7 +21,7 @@ else: size_name = str(size//1000) + 'K'
 abrupt, nominal_features = get_stagger_datasets(size)
 #evaluate the abrupt datasets on naive baselines and all combinations with the Naive Bayes classifier and then write the results in a csv-file 
 abrupt_nb = evaluation(abrupt,nominal_attributes=nominal_features,ht=False,bole=False)
-write_results_to_csv(f'results/{generator}_{size_name}_abrupt_nb.csv', abrupt_nb)
+write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_abrupt_nb.csv', abrupt_nb)
 #evaluate the abrupt datasets on all combinations with the Hoeffding tree classifier and then write the results in a csv-file  
 abrupt_ht = evaluation(abrupt,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,bole=False)
 write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_abrupt_ht.csv', abrupt_ht) 

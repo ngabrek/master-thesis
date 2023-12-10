@@ -21,7 +21,7 @@ else: size_name = str(size//1000) + 'K'
 gradual, nominal_features = get_stagger_datasets(size, gradual=True)
 #evaluate the gradual datasets on naive baselines and all combinations with the Naive Bayes classifier and then write the results in a csv-file
 gradual_nb = evaluation(gradual,nominal_attributes=nominal_features,ht=False,bole=False)
-write_results_to_csv(f'results/{generator}_{size_name}_gradual_nb.csv', gradual_nb) 
+write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_nb.csv', gradual_nb) 
 #evaluate the gradual datasets on all combinations with the Hoeffding tree classifier and then write the results in a csv-file
 gradual_ht = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,bole=False)
 write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_ht.csv', gradual_ht) 
