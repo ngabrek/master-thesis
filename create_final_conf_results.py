@@ -18,5 +18,5 @@ for generator in generators:
     for size in sizes:
         print(size)
         df = create_results_file(f'results/{generator}/{size}')
-        write_results_to_csv(f'results/{generator}/{size}/conf_{generator}_{size}_f.csv', df, index=False, sep=';')
+        write_results_to_csv(f'results/{generator}/final_results/conf_{generator}_{size}_f.csv', df, index=False, sep=';')
 
