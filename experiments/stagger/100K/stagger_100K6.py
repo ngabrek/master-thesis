@@ -21,6 +21,6 @@ else: size_name = str(size//1000) + 'K'
 gradual, nominal_features = get_stagger_datasets(size, gradual=True)
 
 #evaluate the gradual datasets on all combinations with the BOLE classifier but BOCD and then write the results in a csv-file  
-for i in range(1,250,50):
+for i in range(1,150,50):
     gradual_bole = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,ht=False,bocd=False,seed=i)
     write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_bole_{i}.csv', gradual_bole) 
