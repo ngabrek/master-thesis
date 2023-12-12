@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['README.md']
+recent_files = ['README.md', 'experiments\\stagger\\500K\\stagger_500K17.py', 'experiments\\stagger\\500K\\stagger_500K18.py', 'experiments\\stagger\\500K\\stagger_500K19.py', 'experiments\\stagger\\500K\\stagger_500K20.py']
 
 [main]
 version = 0.2.0
