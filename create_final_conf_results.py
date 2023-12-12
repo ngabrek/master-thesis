@@ -9,8 +9,11 @@ from utils.create_results_file import create_results_file
 from utils.read_and_write import write_results_to_csv
 
 #generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
+#sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
+
 generators = ['stagger']
-sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
+sizes = ['10K','20K','100K','500K','1M']
+
 
 
 for generator in generators:
