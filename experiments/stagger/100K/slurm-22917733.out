@@ -1,0 +1,15 @@
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n276
+Job ID: 22917733
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 2-22:06:44
+CPU Efficiency: 49.68% of 5-21:07:14 core-walltime
+Job Wall-clock time: 2-22:33:37
+Memory Utilized: 1.22 GB
+Memory Efficiency: 55.58% of 2.20 GB
