@@ -52,11 +52,18 @@ def evaluation(datasets:dict,nominal_attributes=None,seed:int=23,
 def start_evaluation_process(dataset_name:str,dataset,size,models,df:pd.DataFrame) -> pd.DataFrame:
     #iterate over each model and evaluate it on the current dataset 
     for model_name, model in models.items():
+        print(model_name)
         #initialize a new row to store the evaluation results of the model on the given dataset
         new_row = [dataset_name, model_name]
-        #reset detector for new model
+        #reset detector for new model (NB, HT)
         if hasattr(model,'reset_detector'):
             model.reset_detector()
+            print('reset')
+        #reset detector for new model (BOLE)
+        if hasattr(model,'model'):
+            if hasattr(model.model, 'reset_detector'):
+                model.model.reset_detector()
+                print('reset')
         #evaluate the model on the given dataset
         results, time, memory = progressive_val_score(
                     dataset=dataset.take(size), 
