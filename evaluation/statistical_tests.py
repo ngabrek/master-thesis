@@ -256,7 +256,7 @@ def print_CD_diagram(data,avg_rank,fname:str,titel:str=""):
                                    label_props={'color':'black'},
                                    crossbar_props={'color':'red'},
                                    elbow_props={'color':'gray'})
-    #plt.savefig(fname)
+    plt.savefig(fname,bbox_inches='tight')
     plt.show()
 
     
