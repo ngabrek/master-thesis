@@ -12,31 +12,14 @@ import numpy as np
 import scikit_posthocs as sp
 import matplotlib.pyplot as plt
 
-def create_dict_detectors_synth(metric:str, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True) -> dict:
+def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detectors:list, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the synthetic datasets"""
     df = read_all_result_files()
 
-    dict_detectors = {
-        'basic' : [],
-        'ADWIN' : [],
-        'BOCD': [],
-        'CUSUM' : [],
-        'DDM' : [],
-        'ECDD' : [],
-        'EDDM' : [],
-        'GMA' : [],
-        'HDDMA' : [],
-        'HDDMW' : [],
-        'KSWIN' : [],
-        'PH' : [],
-        'RDDM' : [],
-        'STEPD' : [],
-        }
-
-    generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
-    sizes = ['10.0K', '20.0K','50.0K','100.0K','500.0K','1000.0K']
-    detectors = ['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']
+    dict_detectors = {}
+    for detector in detectors:
+        dict_detectors[detector] = []
 
     for size in sizes:
         for generator in generators:
@@ -146,10 +129,13 @@ def get_mean(metric:str, nb:bool=True, ht:bool=True, abrupt:bool=True, gradual:b
     
     return dict_detectors
 
-def get_avg_rank_synth(metric:str, ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True):
+def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'], sizes:list=['10K','20K','50K','100K','500K','1M'], 
+                       detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
+                       ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True):
     
     """ This method computes the average ranks for the statistical test of the respective models over the synthetic datasets"""
-    dict_detectors = create_dict_detectors_synth(metric, nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
+    
+    dict_detectors = create_dict_detectors_synth(metric, generators, sizes, detectors,nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -247,7 +233,7 @@ def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE+HT
     return data, avg_rank
 
 
-def print_CD_diagram(data,avg_rank,titel:str=""):
+def print_CD_diagram(data,avg_rank,fname:str,titel:str=""):
     test_results = sp.posthoc_nemenyi_friedman(
         data,
         melted=True,
@@ -270,7 +256,9 @@ def print_CD_diagram(data,avg_rank,titel:str=""):
                                    label_props={'color':'black'},
                                    crossbar_props={'color':'red'},
                                    elbow_props={'color':'gray'})
+    #plt.savefig(fname)
     plt.show()
+
     
     
     
