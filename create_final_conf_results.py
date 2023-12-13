@@ -12,8 +12,7 @@ from utils.read_and_write import write_results_to_csv
 #sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
 
 generators = ['stagger']
-sizes = ['10K','20K','100K','500K','1M']
-
+sizes = ['50K']
 
 
 for generator in generators:

@@ -1,0 +1,22 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+slurmstepd: error: *** JOB 22917813 ON uc2n275 CANCELLED AT 2023-12-12T17:19:02 DUE TO TIME LIMIT ***
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n275
+Job ID: 22917813
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 6-00:00:32 core-walltime
+Job Wall-clock time: 3-00:00:16
+Memory Utilized: 1.88 GB
+Memory Efficiency: 85.37% of 2.20 GB
