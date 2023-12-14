@@ -2,7 +2,7 @@
 ################# Begin Slurm header ####################
 #
 # Give job a reasonable name
-#SBATCH --job-name=mixed_10K6
+#SBATCH --job-name=mixed_50K6
 #
 # Request number of nodes for job
 #SBATCH --ntasks=1
@@ -22,4 +22,4 @@ cd ..
 cd ..
 cd ..
 
-python -m experiments.mixed.10K.mixed_10K6
+python -m experiments.mixed.50K.mixed_50K6
