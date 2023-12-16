@@ -102,7 +102,7 @@ def create_dict_detectors_insects(metric:str, bal:bool=True, imbal:bool=True, cl
 def create_dict_detectors_real(metric:str,classifiers,datasets,detectors) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the Insects datasets"""
-    df = read_all_result_files(generators=['real_world'])
+    df = read_all_result_files(generators=['real-world'])
     
     dict_detectors = {}
     
@@ -136,6 +136,8 @@ def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed
     """ This method computes the average ranks for the statistical test of the respective models over the synthetic datasets"""
     
     dict_detectors = create_dict_detectors_synth(metric, generators, sizes, detectors,nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
+    
+    dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -153,11 +155,13 @@ def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed
 
     return data, avg_rank
 
-def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE+HT'], drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], 
+def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE'], drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], 
                                   detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']):
     
     """ This method computes the average ranks for the statistical test of the respective models over the Insects datasets"""
     dict_detectors = create_dict_detectors_insects(metric, bal=bal, imbal=imbal, classifiers=classifiers, drifts=drifts, detectors=detectors)
+    
+    dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -175,11 +179,14 @@ def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=T
 
     return data, avg_rank
 
-def get_avg_rank_real(metric:str, ascending=True, classifiers=['NB','HT','BOLE+HT'], datasets=['Covertype','Elec2','SensorStream'], 
+def get_avg_rank_real(metric:str, ascending=True, classifiers=['NB','HT','BOLE'], datasets=['Covertype','Elec2','SensorStream'], 
                                   detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']):
     
     """ This method computes the average ranks for the statistical test of the respective models over the real-world datasets"""
     dict_detectors = create_dict_detectors_real(metric,classifiers=classifiers,datasets=datasets,detectors=detectors)
+    
+    if 'SensorStream' in datasets:
+        dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -197,7 +204,7 @@ def get_avg_rank_real(metric:str, ascending=True, classifiers=['NB','HT','BOLE+H
 
     return data, avg_rank
 
-def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE+HT'],datasets=['synthetic','real-world','insects'],
+def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE'],datasets=['synthetic','real-world','insects'],
                  detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']):
     
     """ This method computes the average ranks for the statistical test of the respective models over all datasets"""
@@ -234,6 +241,7 @@ def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE+HT
 
 
 def print_CD_diagram(data,avg_rank,fname:str,titel:str=""):
+
     test_results = sp.posthoc_nemenyi_friedman(
         data,
         melted=True,

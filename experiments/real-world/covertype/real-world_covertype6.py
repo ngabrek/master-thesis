@@ -18,7 +18,7 @@ covertype = Covertype()
 dataset = {'Covertype': (covertype, covertype.n_samples)}
 
 #nominal features in the Covertype dataset
-nominal_features = covertype.get_nominal_features()
+nominal_features = Covertype.get_nominal_features()
 
 #evaluate the dataset on KSWIN with the BOLE classifier and then write the results in a csv-file  
 i = 201

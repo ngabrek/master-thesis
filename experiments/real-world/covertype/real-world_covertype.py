@@ -18,7 +18,7 @@ covertype = Covertype()
 dataset = {'Covertype': (covertype, covertype.n_samples)}
 
 #nominal features in the Covertype dataset
-nominal_features = covertype.get_nominal_features()
+nominal_features = Covertype.get_nominal_features()
 
 #evaluate the dataset on naive baselines and all combinations with the Naive Bayes classifier and then write the results in a csv-file 
 nb = evaluation(dataset,nominal_attributes=nominal_features,ht=False,bole=False)

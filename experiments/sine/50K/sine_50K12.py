@@ -23,5 +23,5 @@ gradual, nominal_features = get_sine_datasets(size, gradual=True)
 #evaluate the gradual datasets on all combinations with the BOLE classifier and then write the results in a csv-file  
 i = 151
 gradual_bole = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,ht=False,seed=i)
-write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_bole_{i}.csv', abrupt_gradual) 
+write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_bole_{i}.csv', gradual_bole) 
 

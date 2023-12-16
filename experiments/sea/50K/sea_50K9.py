@@ -11,7 +11,7 @@ from utils.read_and_write import write_results_to_csv
  
 #adapt these variables according the dataset under evaluation
 generator = 'sea'
-size = 20_000
+size = 50_000
 
 #get the size_name for the name of the dataset
 if size == 1_000_000: size_name ='1M'

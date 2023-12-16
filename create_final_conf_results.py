@@ -11,8 +11,8 @@ from utils.read_and_write import write_results_to_csv
 #generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
 #sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
 
-generators = ['agrawal2','sine']
-sizes = ['10K']
+generators = ['real-world']
+sizes = ['sensor-stream']
 
 
 for generator in generators:
