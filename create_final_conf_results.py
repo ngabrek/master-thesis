@@ -8,11 +8,20 @@ Created on Wed Oct  4 12:00:20 2023
 from utils.create_results_file import create_results_file
 from utils.read_and_write import write_results_to_csv
 
+#synthetic datasets
 #generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
 #sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
+#generators = ['agrawal1']
+#sizes = [ '50K']
 
-generators = ['real-world']
-sizes = ['sensor-stream']
+#insects datasets
+#sizes = ['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring','out-of-control']
+generators = ['insects']
+sizes = ['abrupt']
+
+#real-world datasets
+#generators = ['real-world']
+#sizes = ['electricity','covertype','sensor-stream']
 
 
 for generator in generators:

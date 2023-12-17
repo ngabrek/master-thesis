@@ -1,0 +1,2 @@
+,dataset,model,accuracy,cohen kappa,time,memory,drifts
+0,SensorStream,BOLE_ADWIN_F,0.41665698111813576,0.4043281944351646,07:37:47,1.66 MB,[]

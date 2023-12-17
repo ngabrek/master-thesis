@@ -1,0 +1,2 @@
+,dataset,model,accuracy,cohen kappa,time,memory,drifts
+0,SensorStream,BOLE_EDDM_F,0.5583804321286313,0.5491477923872844,08:23:37,187.59 MB,[]

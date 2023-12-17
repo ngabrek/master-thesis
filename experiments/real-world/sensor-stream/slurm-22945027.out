@@ -1,0 +1,20 @@
+BOLE_basic_F
+BOLE_basic_F
+BOLE_basic_F
+BOLE_basic_F
+BOLE_basic_F
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n268
+Job ID: 22945027
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 16:13:17
+CPU Efficiency: 49.72% of 1-08:37:36 core-walltime
+Job Wall-clock time: 16:18:48
+Memory Utilized: 1.57 GB
+Memory Efficiency: 71.48% of 2.20 GB
