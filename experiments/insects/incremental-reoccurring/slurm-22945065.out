@@ -1,0 +1,163 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+NoChange_basic_F
+MajClass_basic_F
+NB_basic_F
+NB_ADWIN_F
+reset
+NB_BOCD_F
+reset
+NB_CUSUM_F
+reset
+NB_DDM_F
+reset
+NB_ECDD_F
+reset
+NB_EDDM_F
+reset
+NB_GMA_F
+reset
+NB_HDDMA_F
+reset
+NB_HDDMW_F
+reset
+NB_KSWIN1_F
+reset
+NB_KSWIN51_F
+reset
+NB_KSWIN101_F
+reset
+NB_KSWIN151_F
+reset
+NB_KSWIN201_F
+reset
+NB_PH_F
+reset
+NB_RDDM_F
+reset
+NB_STEPD_F
+reset
+HT_basic_F
+HT_ADWIN_F
+reset
+HT_BOCD_F
+reset
+HT_CUSUM_F
+reset
+HT_DDM_F
+reset
+HT_ECDD_F
+reset
+HT_EDDM_F
+reset
+HT_GMA_F
+reset
+HT_HDDMA_F
+reset
+HT_HDDMW_F
+reset
+HT_KSWIN1_F
+reset
+HT_KSWIN51_F
+reset
+HT_KSWIN101_F
+reset
+HT_KSWIN151_F
+reset
+HT_KSWIN201_F
+reset
+HT_PH_F
+reset
+HT_RDDM_F
+reset
+HT_STEPD_F
+reset
+NoChange_basic_F
+MajClass_basic_F
+NB_basic_F
+NB_ADWIN_F
+reset
+NB_BOCD_F
+reset
+NB_CUSUM_F
+reset
+NB_DDM_F
+reset
+NB_ECDD_F
+reset
+NB_EDDM_F
+reset
+NB_GMA_F
+reset
+NB_HDDMA_F
+reset
+NB_HDDMW_F
+reset
+NB_KSWIN1_F
+reset
+NB_KSWIN51_F
+reset
+NB_KSWIN101_F
+reset
+NB_KSWIN151_F
+reset
+NB_KSWIN201_F
+reset
+NB_PH_F
+reset
+NB_RDDM_F
+reset
+NB_STEPD_F
+reset
+HT_basic_F
+HT_ADWIN_F
+reset
+HT_BOCD_F
+reset
+HT_CUSUM_F
+reset
+HT_DDM_F
+reset
+HT_ECDD_F
+reset
+HT_EDDM_F
+reset
+HT_GMA_F
+reset
+HT_HDDMA_F
+reset
+HT_HDDMW_F
+reset
+HT_KSWIN1_F
+reset
+HT_KSWIN51_F
+reset
+HT_KSWIN101_F
+reset
+HT_KSWIN151_F
+reset
+HT_KSWIN201_F
+reset
+HT_PH_F
+reset
+HT_RDDM_F
+reset
+HT_STEPD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n267
+Job ID: 22945065
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-02:23:56
+CPU Efficiency: 49.69% of 2-05:07:22 core-walltime
+Job Wall-clock time: 1-02:33:41
+Memory Utilized: 1.89 GB
+Memory Efficiency: 86.06% of 2.20 GB

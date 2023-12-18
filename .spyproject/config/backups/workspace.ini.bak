@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['README.md', 'create_final_conf_results.py']
+recent_files = ['README.md', '..\\..\\Code\\master-thesis\\statistical_test_drifts.py', 'experiments\\sea\\100K\\sea_100K17.py', 'experiments\\sea\\100K\\sea_100K18.py', 'create_final_conf_results.py']
 
 [main]
 version = 0.2.0
