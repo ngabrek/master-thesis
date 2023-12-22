@@ -21,7 +21,7 @@ else: size_name = str(size//1000) + 'K'
 abrupt, nominal_features = get_stagger_datasets(size)
 
 #evaluate the abrupt datasets on all combinations with the BOLE classifier but BOCD and then write the results in a csv-file  
-for i in range(1,100,50):
-    abrupt_bole = evaluation(abrupt,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,ht=False,bocd=False,seed=i)
-    write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_abrupt_bole_{i}.csv', abrupt_bole) 
+i = 1
+abrupt_bole = evaluation(abrupt,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,ht=False,bocd=False,seed=i)
+write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_abrupt_bole_{i}.csv', abrupt_bole) 
 

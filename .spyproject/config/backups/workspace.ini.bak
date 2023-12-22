@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['README.md', '..\\..\\Code\\master-thesis\\statistical_test_drifts.py', 'experiments\\sea\\100K\\sea_100K17.py', 'experiments\\sea\\100K\\sea_100K18.py', 'create_final_conf_results.py']
+recent_files = ['README.md', '..\\..\\Code\\master-thesis\\statistical_test_time.py', '..\\..\\Code\\master-thesis\\utils\\evaluate.py', '..\\..\\Code\\master-thesis\\statistical_test_memory.py', 'create_final_conf_results.py', '..\\..\\Code\\master-thesis\\statistical_test_synth_accuracy.py', '..\\..\\Code\\master-thesis\\statistical_tests_real_accuracy.py', '..\\..\\Code\\master-thesis\\statistical_tests_insects_accuracy.py']
 
 [main]
 version = 0.2.0

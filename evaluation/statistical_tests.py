@@ -54,20 +54,20 @@ def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detecto
                 if ensemble:
                      if abrupt:
                          df_abrupt_BOLE = df[(df['size']==size) & (df['generator']==generator) & (df['detector']==detector) & (df['drift_type']=='abrupt')
-                                  & (df['classifier']=='BOLE+HT')]
+                                  & (df['classifier']=='BOLE')]
                          if df_abrupt_BOLE[metric].size != 0:
                              dict_detectors[detector].append(df_abrupt_BOLE[metric].values[0])
                          else: dict_detectors[detector].append(None)
                      if gradual:
                          df_gradual_BOLE = df[(df['size']==size) & (df['generator']==generator) & (df['detector']==detector) & (df['drift_type']=='gradual')
-                                  & (df['classifier']=='BOLE+HT')]
+                                  & (df['classifier']=='BOLE')]
                          if df_gradual_BOLE[metric].size != 0:
                              dict_detectors[detector].append(df_gradual_BOLE[metric].values[0])
                          else: dict_detectors[detector].append(None)               
                 
     return dict_detectors
 
-def create_dict_detectors_insects(metric:str, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE+HT'], drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], 
+def create_dict_detectors_insects(metric:str, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE'], drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], 
                                   detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the Insects datasets"""
@@ -137,7 +137,7 @@ def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed
     
     dict_detectors = create_dict_detectors_synth(metric, generators, sizes, detectors,nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
     
-    dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
+   # dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -240,7 +240,7 @@ def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE'],
     return data, avg_rank
 
 
-def print_CD_diagram(data,avg_rank,fname:str,titel:str=""):
+def print_CD_diagram(data,avg_rank,fname:str="",titel:str=""):
 
     test_results = sp.posthoc_nemenyi_friedman(
         data,
@@ -264,8 +264,11 @@ def print_CD_diagram(data,avg_rank,fname:str,titel:str=""):
                                    label_props={'color':'black'},
                                    crossbar_props={'color':'red'},
                                    elbow_props={'color':'gray'})
-    plt.savefig(fname,bbox_inches='tight')
-    plt.show()
+    if fname == "":
+        plt.show()
+    else:
+        plt.savefig(fname,bbox_inches='tight')
+    
 
     
     

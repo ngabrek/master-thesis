@@ -1,0 +1,26 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+slurmstepd: error: *** JOB 22945993 ON uc2n267 CANCELLED AT 2023-12-21T00:09:17 DUE TO TIME LIMIT ***
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n267
+Job ID: 22945993
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 6-00:00:26 core-walltime
+Job Wall-clock time: 3-00:00:13
+Memory Utilized: 858.68 MB
+Memory Efficiency: 38.16% of 2.20 GB
+
+# only seed 1 finished

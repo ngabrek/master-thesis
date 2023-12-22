@@ -1,0 +1,25 @@
+BOLE_KSWIN1_F
+reset
+BOLE_KSWIN51_F
+reset
+BOLE_KSWIN101_F
+reset
+BOLE_KSWIN151_F
+reset
+BOLE_KSWIN201_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n371
+Job ID: 22957060
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 05:55:56
+CPU Efficiency: 49.67% of 11:56:32 core-walltime
+Job Wall-clock time: 05:58:16
+Memory Utilized: 358.66 MB
+Memory Efficiency: 15.94% of 2.20 GB
