@@ -1,0 +1,17 @@
+/var/spool/slurmd/job22960531/slurm_script: line 25: 650366 Killed                  python -m experiments.insects.incremental.insects_incremental7
+slurmstepd: error: Detected 1 oom_kill event in StepId=22960531.batch. Some of the step tasks have been OOM Killed.
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n265
+Job ID: 22960531
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: OUT_OF_MEMORY (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 02:41:31
+CPU Efficiency: 48.75% of 05:31:18 core-walltime
+Job Wall-clock time: 02:45:39
+Memory Utilized: 2.14 GB
+Memory Efficiency: 97.19% of 2.20 GB

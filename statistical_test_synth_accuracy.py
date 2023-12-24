@@ -27,8 +27,8 @@ from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram
 #print_CD_diagram(data, avg_rank, titel="accuracy of detectors with HT in the synthetic datasets")
 
 '''include all BOLE models and datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,nb=False,ht=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with BOLE in the synthetic datasets")
+data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,nb=False,ht=False)
+print_CD_diagram(data, avg_rank, titel="accuracy of detectors with BOLE in the synthetic datasets")
 
 
 '''include all 10K datasets'''
@@ -62,30 +62,28 @@ from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram
 
 
 '''include all Agrawal1 datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal1'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal1 generator")
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal1'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal1 generator")
 
 '''include all Agrawal2 datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal2'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal2 generator")
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal2'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal2 generator")
 
 '''include all Mixed datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['mixed'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Mixed generator")
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['mixed'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Mixed generator")
 
 '''include all Sine datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sine'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Sine generator")
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sine'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Sine generator")
 
 '''include all SEA datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sea'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the SEA generator")
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sea'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the SEA generator")
 
 '''include all STAGGER datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['stagger'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the STAGGER generator")
-
-
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['stagger'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the STAGGER generator")
 
 
 

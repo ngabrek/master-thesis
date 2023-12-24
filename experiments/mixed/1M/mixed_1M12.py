@@ -20,7 +20,7 @@ else: size_name = str(size//1000) + 'K'
 #generate the gradual datasets, needs adaption different generator!
 gradual, nominal_features = get_mixed_datasets(size, gradual=True)
 
-#evaluate the gradual datasets on all combinations with the BOLE classifier but BOCD and then write the results in a csv-file  
+#evaluate the gradual datasets on all combinations with the BOLE classifier but BOCD and KSWIN and then write the results in a csv-file  
 i = 101
-gradual_bole = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,ht=False,bocd=False,seed=i)
+gradual_bole = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,ht=False,bocd=False,kswin=False,seed=i)
 write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_bole_{i}.csv', gradual_bole) 

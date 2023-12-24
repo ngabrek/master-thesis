@@ -11,18 +11,18 @@ from utils.read_and_write import write_results_to_csv
 #synthetic datasets
 #generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
 #sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
-generators = ['agrawal2']
-sizes = ['50K']
+#generators = ['agrawal2']
+#sizes = ['500K','1M']
 
 #insects datasets
 #sizes = ['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring','out-of-control']
-#generators = ['insects']
-#sizes = ['incremental-abrupt','incremental-reoccurring']
+generators = ['insects']
+sizes = ['gradual']
 
 #real-world datasets
-# = ['real-world']
+#generators = ['real-world']
 #sizes = ['electricity','covertype','sensor-stream']
-#sizes = ['covertype']
+#sizes = ['sensor-stream']
 
 
 for generator in generators:

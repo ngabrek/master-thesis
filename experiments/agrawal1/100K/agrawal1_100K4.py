@@ -21,7 +21,7 @@ else: size_name = str(size//1000) + 'K'
 gradual, nominal_features = get_agrawal_datasets(1,size, gradual=True)
 
 #evaluate the gradual datasets on BOCD with the Hoeffding tree classifier and then write the results in a csv-file
-gradual_ht = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,bole=False,bole=False,basic=False,adwin=False,cusum=False,ddm=False,
+gradual_ht = evaluation(gradual,nominal_attributes=nominal_features,nb=False,majclass=False,nochange=False,bole=False,basic=False,adwin=False,cusum=False,ddm=False,
                        ecdd=False,eddm=False,gma=False,hddma=False,hddmw=False,kswin=False,ph=False,rddm=False,stepd=False)
 write_results_to_csv(f'results/{generator}/{size_name}/{generator}_{size_name}_gradual_ht_bocd.csv', gradual_ht)    
 

@@ -212,16 +212,18 @@ def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE'],
     
     dict_detectors_insects = create_dict_detectors_insects(metric, bal=True, imbal=True, classifiers=classifiers, drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], detectors=detectors)
     
-    dict_detectors_synth = create_dict_detectors_synth(metric, nb=('NB' in classifiers), ht=('HT' in classifiers), ensemble=('BOLE+HT' in classifiers), abrupt=True, gradual=True)
+    dict_detectors_synth = create_dict_detectors_synth(metric, 
+                                                       generators=['agrawal1','agrawal2','mixed','sea','sine','stagger'], 
+                                                       sizes=['10K','20K','50K','100K','500K','1M'],
+                                                       detectors=detectors, 
+                                                       nb=('NB' in classifiers), ht=('HT' in classifiers), ensemble=('BOLE' in classifiers),
+                                                       abrupt=True, gradual=True)
         
     dict_detectors_real = create_dict_detectors_real(metric,classifiers=classifiers,datasets=['Covertype','Elec2','SensorStream'],detectors=detectors)
     
     for key,value in dict_detectors_insects.items():
         dict_detectors[key] = dict_detectors_insects[key] + dict_detectors_synth[key] + dict_detectors_real[key]
     
-
-    
-    print(dict_detectors)
     
     data = (
             pd.DataFrame(dict_detectors)
