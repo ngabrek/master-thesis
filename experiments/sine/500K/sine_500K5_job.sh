@@ -22,4 +22,4 @@ cd ..
 cd ..
 cd ..
 
-python -m experiments.sine.500K.sine_500K
+python -m experiments.sine.500K.sine_500K5

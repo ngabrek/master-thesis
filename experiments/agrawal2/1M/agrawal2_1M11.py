@@ -11,7 +11,7 @@ from utils.read_and_write import write_results_to_csv
  
 #adapt these variables according the dataset under evaluation
 generator = 'agrawal2'
-size = 500_000
+size = 1_000_000
 
 #get the size_name for the name of the dataset
 if size == 1_000_000: size_name ='1M'

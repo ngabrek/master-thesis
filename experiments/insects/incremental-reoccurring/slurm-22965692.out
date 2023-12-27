@@ -1,0 +1,50 @@
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_BOCD_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_KSWIN1_F
+reset
+BOLE_KSWIN51_F
+reset
+BOLE_KSWIN101_F
+reset
+BOLE_KSWIN151_F
+reset
+BOLE_KSWIN201_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n284
+Job ID: 22965692
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-21:15:41
+CPU Efficiency: 49.74% of 3-18:59:32 core-walltime
+Job Wall-clock time: 1-21:29:46
+Memory Utilized: 1.99 GB
+Memory Efficiency: 90.78% of 2.20 GB

@@ -12,7 +12,8 @@ import numpy as np
 import scikit_posthocs as sp
 import matplotlib.pyplot as plt
 
-def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detectors:list, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True) -> dict:
+def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detectors:list, nb:bool, ht:bool,ensemble:bool, 
+                                abrupt:bool, gradual:bool) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the synthetic datasets"""
     df = read_all_result_files()
@@ -67,10 +68,10 @@ def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detecto
                 
     return dict_detectors
 
-def create_dict_detectors_insects(metric:str, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE'], drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], 
-                                  detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']) -> dict:
+def create_dict_detectors_insects(metric:str, bal:bool, imbal:bool, classifiers:list, drifts:list,detectors:list) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the Insects datasets"""
+    
     df = read_all_result_files(generators=['insects'])
     df_insects = df[df['generator']=='Insects']
     df_bal = df_insects[df_insects['size']=='bal']
@@ -99,9 +100,9 @@ def create_dict_detectors_insects(metric:str, bal:bool=True, imbal:bool=True, cl
                 
     return dict_detectors
 
-def create_dict_detectors_real(metric:str,classifiers,datasets,detectors) -> dict:
+def create_dict_detectors_real(metric:str,classifiers:list,datasets:list,detectors:list) -> dict:
     
-    """ This method creates a dictionary for the statistical evaluation of the Insects datasets"""
+    """ This method creates a dictionary for the statistical evaluation of the real-world datasets"""
     df = read_all_result_files(generators=['real-world'])
     
     dict_detectors = {}
@@ -120,9 +121,56 @@ def create_dict_detectors_real(metric:str,classifiers,datasets,detectors) -> dic
 
     return dict_detectors
 
-def get_mean(metric:str, nb:bool=True, ht:bool=True, abrupt:bool=True, gradual:bool=True) -> dict:
-    dict_detectors = create_dict_detectors_synth(metric, nb=nb, ht=ht, abrupt=abrupt, gradual=gradual)
+def get_mean_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'],
+                   sizes:list=['10K','20K','50K','100K','500K','1M'], 
+                   detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'], 
+                   nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True) -> dict:
     
+    dict_detectors = create_dict_detectors_synth(metric=metric, generators=generators, sizes=sizes,
+                                                 detectors=detectors, nb=nb, ht=ht, ensemble=ensemble,
+                                                 abrupt=abrupt, gradual=gradual)
+    
+    for key in dict_detectors:
+        new_dict = np.array(dict_detectors[key], dtype=np.float64)
+        dict_detectors[key] = np.nanmean(new_dict)
+    
+    return dict_detectors
+
+def get_mean_insects(metric:str, 
+                   variants:list=['abrupt','gradual','incremental-abrupt','incremental-reoccurring'], 
+                   classifiers=['NB','HT'],
+                   detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'], 
+                   nb:bool=True, ht:bool=True, ensemble:bool=True, bal:bool=True, imbal:bool=True) -> dict:
+    
+    dict_detectors = create_dict_detectors_insects(metric=metric, bal=bal, imbal=imbal, 
+                                                   classifiers=classifiers, drifts=variants, detectors=detectors) 
+    
+    for key in dict_detectors:
+        new_dict = np.array(dict_detectors[key], dtype=np.float64)
+        dict_detectors[key] = np.nanmean(new_dict)
+    
+    return dict_detectors
+
+def get_mean_all(metric:str, 
+                  classifiers=['NB','HT','BOLE'],datasets=['synthetic','real-world','insects'],
+                  detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']) -> dict:
+    
+    dict_detectors = {}
+    
+    dict_detectors_insects = create_dict_detectors_insects(metric, bal=True, imbal=True, classifiers=classifiers, drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], detectors=detectors)
+    
+    dict_detectors_synth = create_dict_detectors_synth(metric, 
+                                                       generators=['agrawal1','agrawal2','mixed','sea','sine','stagger'], 
+                                                       sizes=['10K','20K','50K','100K','500K','1M'],
+                                                       detectors=detectors, 
+                                                       nb=('NB' in classifiers), ht=('HT' in classifiers), ensemble=('BOLE' in classifiers),
+                                                       abrupt=True, gradual=True)
+        
+    dict_detectors_real = create_dict_detectors_real(metric,classifiers=classifiers,datasets=['Covertype','Elec2','SensorStream'],detectors=detectors)
+    
+    for key,value in dict_detectors_insects.items():
+        dict_detectors[key] = dict_detectors_insects[key] + dict_detectors_synth[key] + dict_detectors_real[key]
+        
     for key in dict_detectors:
         new_dict = np.array(dict_detectors[key], dtype=np.float64)
         dict_detectors[key] = np.nanmean(new_dict)
@@ -155,7 +203,7 @@ def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed
 
     return data, avg_rank
 
-def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE'], drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], 
+def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE'], drifts=['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring'], 
                                   detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']):
     
     """ This method computes the average ranks for the statistical test of the respective models over the Insects datasets"""

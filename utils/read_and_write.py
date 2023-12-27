@@ -30,7 +30,7 @@ def read_results_from_csv(filepath:str, index:bool=True, sep:str=',')->pd.DataFr
         return pd.read_csv(filepath, header=0, sep=sep)
     
     
-def read_all_result_files(generators=['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea'])->pd.DataFrame:
+def read_all_result_files(generators=['agrawal1','agrawal2','mixed','sine','stagger','sea','insects','real-world'])->pd.DataFrame:
     current_path = os.getcwd()
 
     final_df = pd.DataFrame()

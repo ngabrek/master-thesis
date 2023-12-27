@@ -7,6 +7,7 @@ from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram
 '''include all models and datasets'''
 data, avg_rank = get_avg_rank_synth('cohen_kappas_mean',ascending=False)
 print_CD_diagram(data, avg_rank, titel="Cohen's kappa of detectors in the synthetic datasets")
+print_CD_diagram(data, avg_rank, 'plots/CD_kappa_synth.png')
 
 
 '''include all models and abrupt datasets'''

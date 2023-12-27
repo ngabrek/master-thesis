@@ -22,4 +22,4 @@ cd ..
 cd ..
 cd ..
 
-python -m experiments.agrawal1.100K.agrawal1_100K
+python -m experiments.agrawal1.100K.agrawal1_100K7
