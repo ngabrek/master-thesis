@@ -1,4 +1,4 @@
-# A Comparison of concept drift detectors in an online learning setting 
+# A comparison of concept drift detectors in an online learning setting 
 ### presented by Nadine Gabrek
 
 This repository contains the relevant code for the execution of the experiments, which produced the relevant results for the master-thesis.
