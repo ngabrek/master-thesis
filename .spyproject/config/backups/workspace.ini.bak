@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['README.md', 'experiments\\agrawal1\\100K\\agrawal1_100K7.py']
+recent_files = ['README.md', 'create_final_conf_results.py', 'statistical_test_drifts.py', 'statistical_test_insects_accuracy.py', 'evaluation\\statistical_tests.py', 'utils\\read_and_write.py', 'statistical_test_runtime.py', 'statistical_test_memory.py']
 
 [main]
 version = 0.2.0
