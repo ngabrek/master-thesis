@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
 
 
-from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram
+from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram, create_dict_detectors_synth, friedman_nemenyi_test_synth
+
 
 
 '''include all models and datasets'''
-data, avg_rank = get_avg_rank_synth('cohen_kappas_mean',ascending=False)
-print_CD_diagram(data, avg_rank, titel="Cohen's kappa of detectors in the synthetic datasets")
-print_CD_diagram(data, avg_rank, 'plots/CD_kappa_synth.png')
+print(friedman_nemenyi_test_synth('cohen_kappas_mean',ascending=False,titel="Cohen's kappa of detectors in the synthetic datasets"))
+print(friedman_nemenyi_test_synth('cohen_kappas_mean',ascending=False,fname='plots/CD_kappa_synth.png'))
+
+
 
 
 '''include all models and abrupt datasets'''
 #data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,gradual=False)
 #print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets with abrupt drifts")
+
 
 '''include all models and gradual datasets'''
 #data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,abrupt=False)

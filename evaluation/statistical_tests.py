@@ -11,12 +11,19 @@ import pandas as pd
 import numpy as np
 import scikit_posthocs as sp
 import matplotlib.pyplot as plt
+from scipy import stats
 
-def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detectors:list, nb:bool, ht:bool,ensemble:bool, 
-                                abrupt:bool, gradual:bool) -> dict:
+def create_dict_detectors_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'], 
+                                sizes:list=['10K','20K','50K','100K','500K','1M'], 
+                                detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'], 
+                                nb:bool=True, ht:bool=True,ensemble:bool=True, 
+                                abrupt:bool=True, gradual:bool=True, friedman:bool=False) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the synthetic datasets"""
     df = read_all_result_files()
+    value = None 
+    if friedman:
+        value = 0
 
     dict_detectors = {}
     for detector in detectors:
@@ -31,26 +38,26 @@ def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detecto
                                  & (df['classifier']=='HT')]
                         if df_abrupt_HT[metric].size != 0:
                             dict_detectors[detector].append(df_abrupt_HT[metric].values[0])
-                        else: dict_detectors[detector].append(None)
+                        else: dict_detectors[detector].append(value) #was None before
                     if gradual:
                         df_gradual_HT =  df[(df['size']==size) & (df['generator']==generator) & (df['detector']==detector) & (df['drift_type']=='gradual')
                                  & (df['classifier']=='HT')]
                         if df_gradual_HT[metric].size != 0:
                             dict_detectors[detector].append(df_gradual_HT[metric].values[0])
-                        else: dict_detectors[detector].append(None)
+                        else: dict_detectors[detector].append(value)  #was None before
                 if nb:
                     if abrupt:
                         df_abrupt_NB = df[(df['size']==size) & (df['generator']==generator) & (df['detector']==detector) & (df['drift_type']=='abrupt')
                                  & (df['classifier']=='NB')]
                         if df_abrupt_NB[metric].size != 0:
                             dict_detectors[detector].append(df_abrupt_NB[metric].values[0])
-                        else: dict_detectors[detector].append(None)
+                        else: dict_detectors[detector].append(value)  #was None before
                     if gradual:
                         df_gradual_NB =  df[(df['size']==size) & (df['generator']==generator) & (df['detector']==detector) & (df['drift_type']=='gradual')
                                  & (df['classifier']=='NB')]
                         if df_gradual_NB[metric].size != 0:
                             dict_detectors[detector].append(df_gradual_NB[metric].values[0])
-                        else: dict_detectors[detector].append(None)
+                        else: dict_detectors[detector].append(value)  #was None before
                         
                 if ensemble:
                      if abrupt:
@@ -58,13 +65,13 @@ def create_dict_detectors_synth(metric:str, generators:list, sizes:list, detecto
                                   & (df['classifier']=='BOLE')]
                          if df_abrupt_BOLE[metric].size != 0:
                              dict_detectors[detector].append(df_abrupt_BOLE[metric].values[0])
-                         else: dict_detectors[detector].append(None)
+                         else: dict_detectors[detector].append(value)  #was None before
                      if gradual:
                          df_gradual_BOLE = df[(df['size']==size) & (df['generator']==generator) & (df['detector']==detector) & (df['drift_type']=='gradual')
                                   & (df['classifier']=='BOLE')]
                          if df_gradual_BOLE[metric].size != 0:
                              dict_detectors[detector].append(df_gradual_BOLE[metric].values[0])
-                         else: dict_detectors[detector].append(None)               
+                         else: dict_detectors[detector].append(value)  #was None before              
                 
     return dict_detectors
 
@@ -198,6 +205,7 @@ def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed
             .reset_index()
             )
     
+    
     avg_rank = data.groupby('dataset').score.rank(ascending=ascending).groupby(data.estimator).mean()
 
 
@@ -318,6 +326,34 @@ def print_CD_diagram(data,avg_rank,fname:str="",titel:str=""):
         plt.show()
     else:
         plt.savefig(fname,bbox_inches='tight')
+        
+
+def friedman_nemenyi_test_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'], sizes:list=['10K','20K','50K','100K','500K','1M'], 
+                       detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
+                       ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True, fname:str='', titel:str=''):
+    
+    ''' This method first computed the Friedman test, if it was successfull the post-hoc Nemenyi test is applied '''
+    
+    #Friedman test can not handle None values, consequently an separate dictionary is loaded, where the None values are represented as 0 
+    dict_detectors = create_dict_detectors_synth(metric=metric, generators=generators,sizes=sizes,detectors=detectors, 
+                                    nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual, friedman=True)
+    
+    results = stats.friedmanchisquare(*dict_detectors.values())
+    
+    if results.pvalue < 0.05:
+        #Nemenyi test works with None values and would generated corrupted results on 0s, as it would always rank them last
+        data, avg_rank = get_avg_rank_synth(metric=metric, generators=generators, sizes=sizes, detectors=detectors,
+                           ascending=ascending, nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
+        
+        if titel !='':
+            print_CD_diagram(data, avg_rank, fname='', titel=titel)
+        if fname !='':
+            print_CD_diagram(data, avg_rank, fname=fname, titel='')
+        if titel == '' and fname == '':
+            print_CD_diagram(data, avg_rank, fname=fname, titel=titel)
+    
+    # returns if Friedman test passed and consequently if Nemenyi test was computed
+    return results.pvalue < 0.05
     
 
     

@@ -10,9 +10,9 @@ from utils.read_and_write import write_results_to_csv
 
 #synthetic datasets
 #generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
-# = ['10K', '20K', '50K', '100K', '500K', '1M']
-generators = ['mixed']
-sizes = ['1M']
+#sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
+generators = ['sea']
+sizes = ['100K']
 
 #insects datasets
 #sizes = ['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring','out-of-control']
