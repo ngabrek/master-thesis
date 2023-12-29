@@ -11,7 +11,7 @@ from utils.read_and_write import write_results_to_csv
 #synthetic datasets
 #generators = ['agrawal1', 'agrawal2', 'mixed', 'sine','stagger','sea']
 #sizes = ['10K', '20K', '50K', '100K', '500K', '1M']
-generators = ['sea']
+generators = ['mixed']
 sizes = ['100K']
 
 #insects datasets
