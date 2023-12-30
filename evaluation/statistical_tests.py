@@ -107,10 +107,14 @@ def create_dict_detectors_insects(metric:str, bal:bool, imbal:bool, classifiers:
                 
     return dict_detectors
 
-def create_dict_detectors_real(metric:str,classifiers:list,datasets:list,detectors:list) -> dict:
-    
+def create_dict_detectors_real(metric:str,classifiers:list,datasets:list,detectors:list,friedman:bool=False) -> dict:
+    print(datasets)
     """ This method creates a dictionary for the statistical evaluation of the real-world datasets"""
     df = read_all_result_files(generators=['real-world'])
+    
+    value = None 
+    if friedman:
+        value = 0
     
     dict_detectors = {}
     
@@ -124,7 +128,7 @@ def create_dict_detectors_real(metric:str,classifiers:list,datasets:list,detecto
 
                 if df_current[metric].size != 0:
                     dict_detectors[detector].append(df_current[metric].values[0])
-                else: dict_detectors[detector].append(None)
+                else: dict_detectors[detector].append(value)
 
     return dict_detectors
 
@@ -186,13 +190,14 @@ def get_mean_all(metric:str,
 
 def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'], sizes:list=['10K','20K','50K','100K','500K','1M'], 
                        detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
-                       ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True):
+                       ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True, to:bool=False):
     
     """ This method computes the average ranks for the statistical test of the respective models over the synthetic datasets"""
     
     dict_detectors = create_dict_detectors_synth(metric, generators, sizes, detectors,nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
     
-   # dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
+    if to:
+        dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -241,8 +246,8 @@ def get_avg_rank_real(metric:str, ascending=True, classifiers=['NB','HT','BOLE']
     """ This method computes the average ranks for the statistical test of the respective models over the real-world datasets"""
     dict_detectors = create_dict_detectors_real(metric,classifiers=classifiers,datasets=datasets,detectors=detectors)
     
-    if 'SensorStream' in datasets:
-        dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
+    if 'SensorStream' in datasets and 'BOCD' in dict_detectors:
+            dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -330,7 +335,7 @@ def print_CD_diagram(data,avg_rank,fname:str="",titel:str=""):
 
 def friedman_nemenyi_test_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'], sizes:list=['10K','20K','50K','100K','500K','1M'], 
                        detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
-                       ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True, fname:str='', titel:str=''):
+                       ascending=True, nb:bool=True, ht:bool=True, ensemble:bool=True, abrupt:bool=True, gradual:bool=True, to:bool=False, fname:str='', titel:str=''):
     
     ''' This method first computed the Friedman test, if it was successfull the post-hoc Nemenyi test is applied '''
     
@@ -343,7 +348,7 @@ def friedman_nemenyi_test_synth(metric:str, generators:list=['agrawal1','agrawal
     if results.pvalue < 0.05:
         #Nemenyi test works with None values and would generated corrupted results on 0s, as it would always rank them last
         data, avg_rank = get_avg_rank_synth(metric=metric, generators=generators, sizes=sizes, detectors=detectors,
-                           ascending=ascending, nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual)
+                           ascending=ascending, nb=nb, ht=ht, ensemble=ensemble, abrupt=abrupt, gradual=gradual, to=to)
         
         if titel !='':
             print_CD_diagram(data, avg_rank, fname='', titel=titel)
@@ -355,6 +360,32 @@ def friedman_nemenyi_test_synth(metric:str, generators:list=['agrawal1','agrawal
     # returns if Friedman test passed and consequently if Nemenyi test was computed
     return results.pvalue < 0.05
     
+def friedman_nemenyi_test_real(metric:str, datasets:list=['Covertype','Elec2','SensorStream'], classifiers:list=['NB','HT','BOLE'],
+                       detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
+                       ascending=True, fname:str='', titel:str=''):
+    
+    ''' This method first computed the Friedman test, if it was successfull the post-hoc Nemenyi test is applied '''
+    
+    #Friedman test can not handle None values, consequently an separate dictionary is loaded, where the None values are represented as 0 
+    dict_detectors = create_dict_detectors_real(metric=metric, classifiers=classifiers,datasets=datasets,detectors=detectors, friedman=True)
+    
+    results = stats.friedmanchisquare(*dict_detectors.values())
+    
+    if results.pvalue < 0.05:
+        #Nemenyi test works with None values and would generated corrupted results on 0s, as it would always rank them last
+        data, avg_rank = get_avg_rank_real(metric=metric, classifiers=classifiers, detectors=detectors, datasets=datasets,
+                           ascending=ascending)
+        
+        if titel !='':
+            print_CD_diagram(data, avg_rank, fname='', titel=titel)
+        if fname !='':
+            print_CD_diagram(data, avg_rank, fname=fname, titel='')
+        if titel == '' and fname == '':
+            print_CD_diagram(data, avg_rank, fname=fname, titel=titel)
+            
+    print(results.pvalue)
+    # returns if Friedman test passed and consequently if Nemenyi test was computed
+    return results.pvalue < 0.05
 
     
     

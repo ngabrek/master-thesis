@@ -1,40 +1,34 @@
 # -*- coding: utf-8 -*-
 
 
-from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram
+from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram, friedman_nemenyi_test_synth
 
 
 '''include all models and datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth.png')
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,to=True,titel="Predictive accuracy of detectors in the synthetic datasets"))
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,to=True,fname='plots/CD_accuracy_synth.png'))
 
 
 '''include all models and abrupt datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,gradual=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets with abrupt drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_abrupt.png')
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,gradual=False,to=True,titel="Predictive accuracy of detectors in the abrupt synthetic datasets"))
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,gradual=False,to=True,fname='plots/CD_accuracy_synth_abrupt.png'))
 
 '''include all models and gradual datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,abrupt=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets with gradual drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_gradual.png')
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,abrupt=False,to=True,titel="Predictive accuracy of detectors in the gradual synthetic datasets"))
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,abrupt=False,to=True,fname='plots/CD_accuracy_synth_gradual.png'))
 
 
 '''include all NB models and datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,ht=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with NB in the synthetic datasets")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_NB.png')
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,ht=False,to=True,titel="Predictive accuracy of detectors with NB in the synthetic datasets"))
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,ht=False,to=True,fname='plots/CD_accuracy_synth_NB.png'))
 
 '''include all HT models and datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,nb=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with HT in the synthetic datasets")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_HT.png')
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ensemble=False,to=True,titel="Predictive accuracy of detectors with HT in the synthetic datasets"))
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ensemble=False,to=True,fname='plots/CD_accuracy_synth_HT.png'))
 
 '''include all BOLE models and datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,nb=False,ht=False)
-#(data, avg_rank, titel="accuracy of detectors with BOLE in the synthetic datasets")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_BOLE.png')
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ht=False,to=True,titel="Predictive accuracy of detectors with BOLE in the synthetic datasets"))
+#print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ht=False,to=True,fname='plots/CD_accuracy_synth_BOLE.png'))
 
 
 '''include all 10K datasets'''
@@ -67,84 +61,76 @@ from evaluation.statistical_tests import get_avg_rank_synth, print_CD_diagram
 #print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets of size 500K")
 
 '''include all 1M datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,sizes=['1M'],
-                                   detectors=['basic','ADWIN','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets of size 1M")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_1M.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,sizes=['1M'],
+#                                   detectors=['basic','ADWIN','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets of size 1M")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_1M.png')
 
 
 '''include all Agrawal1 datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal1'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal1 generator")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_agrawal1.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal1'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal1 generator")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_agrawal1.png')
 
 '''include all Agrawal2 datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal2'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal2 generator")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_agrawal2.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['agrawal2'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Agrawal2 generator")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_agrawal2.png')
 
 '''include all Mixed datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['mixed'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Mixed generator")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_mixed.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['mixed'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Mixed generator")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_mixed.png')
 
 '''include all Sine datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sine'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Sine generator")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_sine.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sine'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the Sine generator")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_sine.png')
 
 '''include all SEA datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sea'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the SEA generator")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_sea.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['sea'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the SEA generator")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_sea.png')
 
 '''include all STAGGER datasets'''
-data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['stagger'])
-print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the STAGGER generator")
-print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_stagger.png')
+#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,generators=['stagger'])
+#print_CD_diagram(data, avg_rank, titel="accuracy of detectors in the synthetic datasets by the STAGGER generator")
+#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_stagger.png')
 
 
 
 '''include all NB models and abrupt datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,gradual=False,ht=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with NB in the synthetic datasets with abrupt drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_abrupt_NB.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,ht=False,gradual=False,to=True,titel="Predictive accuracy of detectors with NB in the abrupt synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,ht=False,gradual=False,to=True,fname='plots/CD_accuracy_synth_abrupt_NB.png'))
 
 '''include all NB models and gradual datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,abrupt=False,ht=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with NB in the synthetic datasets with gradual drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_gradual_NB.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,ht=False,abrupt=False,to=True,titel="Predictive accuracy of detectors with NB in the gradual synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,ht=False,abrupt=False,to=True,fname='plots/CD_accuracy_synth_gradual_NB.png'))
 
 
 '''include all HT models and abrupt datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,gradual=False,nb=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with HT in the synthetic datasets with abrupt drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_abrupt_HT.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,nb=False,gradual=False,to=True,titel="Predictive accuracy of detectors with HT in the abrupt synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,nb=False,gradual=False,to=True,fname='plots/CD_accuracy_synth_abrupt_HT.png'))
 
 '''include all HT models and gradual datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,abrupt=False,nb=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with HT in the synthetic datasets with gradual drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_gradual_HT.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,nb=False,abrupt=False,to=True,titel="Predictive accuracy of detectors with HT in the gradual synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,nb=False,abrupt=False,to=True,fname='plots/CD_accuracy_synth_gradual_HT.png'))
 
 
 '''include all BOLE models and abrupt datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,gradual=False,nb=False,ht=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with BOLE in the synthetic datasets with abrupt drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_abrupt_BOLE.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ht=False,gradual=False,to=True,titel="Predictive accuracy of detectors with BOLE in the abrupt synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ht=False,gradual=False,to=True,fname='plots/CD_accuracy_synth_abrupt_BOLE.png'))
 
 '''include all BOLE models and gradual datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,abrupt=False,nb=False,ht=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with BOLE in the synthetic datasets with gradual drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_gradual_BOLE.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ht=False,abrupt=False,to=True,titel="Predictive accuracy of detectors with BOLE in the gradual synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,nb=False,ht=False,abrupt=False,to=True,fname='plots/CD_accuracy_synth_gradual_BOLE.png'))
 
 
 '''include all NB+HT models and abrupt datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,gradual=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with NB and HT in the synthetic datasets with abrupt drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_abrupt_NB+HT.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,gradual=False,to=True,titel="Predictive accuracy of detectors with NB and HT in the abrupt synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,gradual=False,to=True,fname='plots/CD_accuracy_synth_abrupt_NB+HT.png'))
 
 '''include all NB+HT models and gradual datasets'''
-#data, avg_rank = get_avg_rank_synth('accuracy_mean',ascending=False,abrupt=False,ensemble=False)
-#print_CD_diagram(data, avg_rank, titel="accuracy of detectors with NB and HT in the synthetic datasets with gradual drifts")
-#print_CD_diagram(data, avg_rank, 'plots/CD_accuracy_synth_gradual_NB+HT.png')
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,abrupt=False,to=True,titel="Predictive accuracy of detectors with NB and HT in the gradual synthetic datasets"))
+print(friedman_nemenyi_test_synth('accuracy_mean',ascending=False,ensemble=False,abrupt=False,to=True,fname='plots/CD_accuracy_synth_gradual_NB+HT.png'))
 
