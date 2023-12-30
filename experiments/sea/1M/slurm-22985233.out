@@ -1,0 +1,507 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/adwin.py:326: RuntimeWarning: invalid value encountered in sqrt
+  np.sqrt(2 * m_reciprocal * self.variance_window * delta_prime)
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_basic_F
+BOLE_ADWIN_F
+reset
+BOLE_CUSUM_F
+reset
+BOLE_DDM_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_GMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMW_F
+reset
+BOLE_PH_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_STEPD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n266
+Job ID: 22985233
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-12:05:42
+CPU Efficiency: 49.76% of 3-00:32:22 core-walltime
+Job Wall-clock time: 1-12:16:11
+Memory Utilized: 474.89 MB
+Memory Efficiency: 21.11% of 2.20 GB
