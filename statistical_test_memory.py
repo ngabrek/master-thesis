@@ -5,43 +5,42 @@ Created on Sat Dec 16 14:44:13 2023
 @author: nadin
 """
 
-from evaluation.statistical_tests import get_avg_rank_real, get_avg_rank_insects, get_avg_rank_synth, get_avg_rank_all, print_CD_diagram, get_mean_all
+from evaluation.statistical_tests import get_mean_all, friedman_nemenyi_test_all,friedman_nemenyi_test_insects,friedman_nemenyi_test_real,friedman_nemenyi_test_synth
 
 '''include all models in all datasets'''
-data, avg_rank = get_avg_rank_all('memory_mean')
-print_CD_diagram(data, avg_rank, titel="memory of detectors on all datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory.png')
+print(friedman_nemenyi_test_all('memory_mean',titel='Memory consumption of detectors in all datasets'))
+print(friedman_nemenyi_test_all('memory_mean',fname='plots/CD_memory'))
 
 print(get_mean_all('memory_mean'))
 
 '''include all models in synthetic datasets'''
-data, avg_rank = get_avg_rank_synth('memory_mean')
-print_CD_diagram(data, avg_rank, titel="memory of detectors in the synthetic datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory_synth.png')
+print(friedman_nemenyi_test_synth('memory_mean',to=True,titel="Memory consumption of detectors in the synthetic datasets"))
+print(friedman_nemenyi_test_synth('memory_mean',to=True,fname='plots/CD_memory_synth.png'))
+#abrupt drift
+print(friedman_nemenyi_test_synth('memory_mean',gradual=False,to=True,titel="Memory consumption of detectors in the abrupt synthetic datasets"))
+print(friedman_nemenyi_test_synth('memory_mean',to=True,gradual=False,fname='plots/CD_memory_synth_abrupt.png'))
+#gradual drift
+print(friedman_nemenyi_test_synth('memory_mean',abrupt=False,to=True,titel="Memory consumption of detectors in the gradual synthetic datasets"))
+print(friedman_nemenyi_test_synth('memory_mean',to=True,abrupt=False,fname='plots/CD_memory_synth_gradual.png'))
 
 '''include all models in Insects datasets'''
-data, avg_rank = get_avg_rank_insects('memory_mean')
-print_CD_diagram(data, avg_rank, titel="memory of detectors in the Insects datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory_insects.png')
+print(friedman_nemenyi_test_insects('memory_mean',titel='Memory consumption of detectors in the Insect datasets'))
+print(friedman_nemenyi_test_insects('memory_mean',fname='plots/CD_memory_insect'))
 
 '''include all models in real-datasets'''
-data, avg_rank = get_avg_rank_real('memory_mean')
-print_CD_diagram(data, avg_rank, titel="memory of detectors in the real-world datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory_real.png')
+print(friedman_nemenyi_test_real('memory_mean',titel='Memory consumption of detectors in the real-world datasets'))
+print(friedman_nemenyi_test_real('memory_mean',fname='plots/CD_memory_real'))
 
 
 '''include NB in all datasets'''
-data, avg_rank = get_avg_rank_all('memory_mean',classifiers=['NB'])
-print_CD_diagram(data, avg_rank, titel="memory of detectors with NB on all datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory_NB.png')
+print(friedman_nemenyi_test_all('memory_mean',classifiers=['NB'],titel='Memory consumption of detectors with NB in all datasets'))
+print(friedman_nemenyi_test_all('memory_mean',classifiers=['NB'],fname='plots/CD_memory_NB'))
 
 '''include HT in all datasets'''
-data, avg_rank = get_avg_rank_all('memory_mean',classifiers=['HT'])
-print_CD_diagram(data, avg_rank, titel="memory of detectors with HT on all datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory_HT.png')
+print(friedman_nemenyi_test_all('memory_mean',classifiers=['HT'],titel='Memory consumption of detectors with HT in all datasets'))
+print(friedman_nemenyi_test_all('memory_mean',classifiers=['HT'],fname='plots/CD_memory_HT'))
 
 '''include HT in all datasets'''
-data, avg_rank = get_avg_rank_all('memory_mean',classifiers=['BOLE'])
-print_CD_diagram(data, avg_rank, titel="memory of detectors with BOLE on all datasets (new)")
-print_CD_diagram(data, avg_rank, 'plots/CD_memory_BOLE.png')
+print(friedman_nemenyi_test_all('memory_mean',classifiers=['BOLE'],titel='Memory consumption of detectors with BOLE in all datasets'))
+print(friedman_nemenyi_test_all('memory_mean',classifiers=['BOLE'],fname='plots/CD_memory_BOLE'))
 

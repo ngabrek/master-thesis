@@ -75,7 +75,7 @@ def create_dict_detectors_synth(metric:str, generators:list=['agrawal1','agrawal
                 
     return dict_detectors
 
-def create_dict_detectors_insects(metric:str, bal:bool, imbal:bool, classifiers:list, drifts:list,detectors:list) -> dict:
+def create_dict_detectors_insects(metric:str, bal:bool, imbal:bool, classifiers:list, drifts:list,detectors:list,friedman:bool=False) -> dict:
     
     """ This method creates a dictionary for the statistical evaluation of the Insects datasets"""
     
@@ -85,6 +85,11 @@ def create_dict_detectors_insects(metric:str, bal:bool, imbal:bool, classifiers:
     df_imbal = df_insects[df_insects['size']=='imbal']
     
     dict_detectors = {}
+    value = None
+    
+    if friedman:
+        value=0
+        
     
     for detector in detectors: 
         dict_detectors[detector]=[]
@@ -97,18 +102,17 @@ def create_dict_detectors_insects(metric:str, bal:bool, imbal:bool, classifiers:
 
                     if df_current[metric].size != 0:
                         dict_detectors[detector].append(df_current[metric].values[0])
-                    else: dict_detectors[detector].append(None)
+                    else: dict_detectors[detector].append(value)
                 if imbal:
                     df_current = df_imbal[(df_imbal['detector']==detector)&(df_imbal['drift_type']==drift)&(df_imbal['classifier']==classifier)]
                     if df_current[metric].size != 0:
                         dict_detectors[detector].append(df_current[metric].values[0])
-                    else: dict_detectors[detector].append(None)
+                    else: dict_detectors[detector].append(value)
              
                 
     return dict_detectors
 
 def create_dict_detectors_real(metric:str,classifiers:list,datasets:list,detectors:list,friedman:bool=False) -> dict:
-    print(datasets)
     """ This method creates a dictionary for the statistical evaluation of the real-world datasets"""
     df = read_all_result_files(generators=['real-world'])
     
@@ -216,13 +220,14 @@ def get_avg_rank_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed
 
     return data, avg_rank
 
-def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=True, classifiers=['NB','HT','BOLE'], drifts=['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring'], 
-                                  detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']):
+def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=True, classifiers:list=['NB','HT','BOLE'], drifts:list=['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring'], 
+                                  detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD']):
     
     """ This method computes the average ranks for the statistical test of the respective models over the Insects datasets"""
     dict_detectors = create_dict_detectors_insects(metric, bal=bal, imbal=imbal, classifiers=classifiers, drifts=drifts, detectors=detectors)
     
-    dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
+    if 'incremental' in drifts and 'BOCD' in detectors and 'BOLE' in classifiers:
+        dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
             pd.DataFrame(dict_detectors)
@@ -285,7 +290,9 @@ def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE'],
     for key,value in dict_detectors_insects.items():
         dict_detectors[key] = dict_detectors_insects[key] + dict_detectors_synth[key] + dict_detectors_real[key]
     
-    
+    if 'BOCD' in dict_detectors and 'BOLE' in classifiers:
+        dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
+        
     data = (
             pd.DataFrame(dict_detectors)
             .rename_axis('dataset')
@@ -332,6 +339,71 @@ def print_CD_diagram(data,avg_rank,fname:str="",titel:str=""):
     else:
         plt.savefig(fname,bbox_inches='tight')
         
+def friedman_nemenyi_test_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE'],datasets=['synthetic','real-world','insects'],
+                              detectors=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'], fname:str='', titel:str=''):
+    
+    ''' This method first computed the Friedman test, if it was successfull the post-hoc Nemenyi test is applied '''
+    
+    #Friedman test can not handle None values, consequently an separate dictionary is loaded, where the None values are represented as 0 
+    dict_detectors = {}
+    dict_detectors_insects = create_dict_detectors_insects(metric, bal=True, imbal=True, classifiers=classifiers, 
+                                                           drifts=['abrupt','gradual','incr','incr-abrupt','ince-reoc','ooc'], detectors=detectors, 
+                                                           friedman=True)
+    dict_detectors_synth = create_dict_detectors_synth(metric, 
+                                                       generators=['agrawal1','agrawal2','mixed','sea','sine','stagger'], 
+                                                       sizes=['10K','20K','50K','100K','500K','1M'],
+                                                       detectors=detectors, 
+                                                       nb=('NB' in classifiers), ht=('HT' in classifiers), ensemble=('BOLE' in classifiers),
+                                                       abrupt=True, gradual=True, friedman=True)
+    dict_detectors_real = create_dict_detectors_real(metric,classifiers=classifiers,datasets=['Covertype','Elec2','SensorStream'],detectors=detectors,
+                                                     friedman=True)
+    
+    for key,value in dict_detectors_insects.items():
+        dict_detectors[key] = dict_detectors_insects[key] + dict_detectors_synth[key] + dict_detectors_real[key]
+    
+    results = stats.friedmanchisquare(*dict_detectors.values())
+    
+    if results.pvalue < 0.05:
+        #Nemenyi test works with None values and would generated corrupted results on 0s, as it would always rank them last
+        data, avg_rank = get_avg_rank_all(metric=metric, ascending=ascending, classifiers=classifiers, datasets=datasets, detectors=detectors)
+        
+        if titel !='':
+            print_CD_diagram(data, avg_rank, fname='', titel=titel)
+        if fname !='':
+            print_CD_diagram(data, avg_rank, fname=fname, titel='')
+        if titel == '' and fname == '':
+            print_CD_diagram(data, avg_rank, fname=fname, titel=titel)
+    
+    # returns if Friedman test passed and consequently if Nemenyi test was computed
+    return results.pvalue < 0.05
+
+def friedman_nemenyi_test_insects(metric:str, classifiers:list=['NB','HT','BOLE'],
+                                  drifts:list=['abrupt','gradual','incremental','incremental-abrupt','incremental-reoccurring'],
+                       detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
+                       ascending=True, bal:bool=True, imbal:bool=True, fname:str='', titel:str=''):
+    
+    ''' This method first computed the Friedman test, if it was successfull the post-hoc Nemenyi test is applied '''
+    
+    #Friedman test can not handle None values, consequently an separate dictionary is loaded, where the None values are represented as 0 
+    dict_detectors = create_dict_detectors_insects(metric=metric, bal=bal, imbal=imbal, classifiers=classifiers, 
+                                                   drifts=drifts,detectors=detectors,friedman=True)
+    
+    results = stats.friedmanchisquare(*dict_detectors.values())
+    
+    if results.pvalue < 0.05:
+        #Nemenyi test works with None values and would generated corrupted results on 0s, as it would always rank them last
+        data, avg_rank = get_avg_rank_insects(metric=metric, ascending=ascending, bal=bal, imbal=imbal, classifiers=classifiers, drifts=drifts, 
+                                          detectors=detectors)
+        
+        if titel !='':
+            print_CD_diagram(data, avg_rank, fname='', titel=titel)
+        if fname !='':
+            print_CD_diagram(data, avg_rank, fname=fname, titel='')
+        if titel == '' and fname == '':
+            print_CD_diagram(data, avg_rank, fname=fname, titel=titel)
+    
+    # returns if Friedman test passed and consequently if Nemenyi test was computed
+    return results.pvalue < 0.05
 
 def friedman_nemenyi_test_synth(metric:str, generators:list=['agrawal1','agrawal2','mixed','sea','sine','stagger'], sizes:list=['10K','20K','50K','100K','500K','1M'], 
                        detectors:list=['basic','ADWIN','BOCD','CUSUM','DDM','ECDD','EDDM','GMA','HDDMA','HDDMW','KSWIN','PH','RDDM','STEPD'],
