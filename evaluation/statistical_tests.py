@@ -290,7 +290,7 @@ def get_avg_rank_all(metric:str, ascending=True, classifiers=['NB','HT','BOLE'],
     for key,value in dict_detectors_insects.items():
         dict_detectors[key] = dict_detectors_insects[key] + dict_detectors_synth[key] + dict_detectors_real[key]
     
-    if 'BOCD' in dict_detectors and 'BOLE' in classifiers:
+    if 'BOCD' in dict_detectors :
         dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
         
     data = (
