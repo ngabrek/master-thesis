@@ -1,0 +1,25 @@
+BOLE_RDDM_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_RDDM_F
+reset
+BOLE_RDDM_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n267
+Job ID: 22945018
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 2-01:25:08
+CPU Efficiency: 49.76% of 4-03:19:20 core-walltime
+Job Wall-clock time: 2-01:39:40
+Memory Utilized: 129.89 MB
+Memory Efficiency: 5.77% of 2.20 GB

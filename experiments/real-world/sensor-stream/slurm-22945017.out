@@ -1,0 +1,25 @@
+BOLE_PH_F
+reset
+BOLE_PH_F
+reset
+BOLE_PH_F
+reset
+BOLE_PH_F
+reset
+BOLE_PH_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n267
+Job ID: 22945017
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-20:34:13
+CPU Efficiency: 49.77% of 3-17:33:40 core-walltime
+Job Wall-clock time: 1-20:46:50
+Memory Utilized: 125.21 MB
+Memory Efficiency: 5.56% of 2.20 GB

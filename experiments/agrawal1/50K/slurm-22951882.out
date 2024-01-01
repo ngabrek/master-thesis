@@ -1,0 +1,75 @@
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+NB_BOCD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n361
+Job ID: 22951882
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-09:55:03
+CPU Efficiency: 49.77% of 2-20:08:34 core-walltime
+Job Wall-clock time: 1-10:04:17
+Memory Utilized: 1.97 GB
+Memory Efficiency: 89.51% of 2.20 GB

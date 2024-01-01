@@ -22,7 +22,7 @@ from frouros_adapted.eddm import EDDM
 from frouros_adapted.hddm import HDDMA, HDDMW
 from frouros_adapted.rddm import RDDM
 from frouros_adapted.adwin import ADWIN
-from frouros_adapted.kswin import KSWIN
+from frouros_adapted.kswin import KSWIN, KSWINConfig
 from frouros_adapted.stepd import STEPD
 
 # Import of base classifiers from the river package 
@@ -36,11 +36,11 @@ from river_adapted.retrain import DriftRetrainingClassifier
 
 
 
-def load_frouros_detectors(
-    adwin:bool=True,bocd:bool=True,cusum:bool=True,ddm:bool=True,ecdd:bool=True,eddm:bool=True,gma:bool=True,gma_sensitive:bool=True,hddma:bool=True,
-    hddmw:bool=True,kswin:bool=True,ph:bool=True,rddm:bool=True,stepd:bool=True) -> dict:
+def load_frouros_detectors(adwin:bool,bocd:bool,cusum:bool,ddm:bool,ecdd:bool,eddm:bool,gma:bool,gma_sensitive:bool,hddma:bool,hddmw:bool,kswin:bool,
+                           ph:bool,rddm:bool,stepd:bool) -> dict:
     
     '''This method returns a dictionary that contains all detectors from the Frouros package as indicated by the input'''
+    
     detectors = {}
     if adwin:
         detectors['ADWIN']=ADWIN()
@@ -62,8 +62,10 @@ def load_frouros_detectors(
         detectors['HDDMA']=HDDMA()
     if hddmw:
         detectors['HDDMW']=HDDMW()
+    #KSWIN is the only detector with randomness
     if kswin:
-        detectors['KSWIN']=KSWIN()
+        for i in range(1,250,50):
+            detectors[f'KSWIN{i}']=KSWIN(KSWINConfig(seed=i))
     if ph:
         detectors['PH']=PageHinkley()
     if rddm:
@@ -73,75 +75,64 @@ def load_frouros_detectors(
     return detectors
 
 
-def load_frouros_models(nochange=True,majclass=True,nb:bool=True,ht:bool=True,
-                        adwin:bool=True,bocd:bool=True,cusum:bool=True,ddm:bool=True,ecdd:bool=True,eddm:bool=True,gma:bool=True,gma_sensitive:bool=True,hddma:bool=True,
-                        hddmw:bool=True,kswin:bool=True,ph:bool=True,rddm:bool=True,stepd:bool=True) -> dict:
+def load_models(nominal_attributes, seed:int,
+                nochange:bool,majclass:bool,nb:bool,ht:bool,bole:bool,
+                basic:bool,adwin:bool,bocd:bool,cusum:bool,ddm:bool,ecdd:bool,eddm:bool,gma:bool,gma_sensitive:bool,hddma:bool,hddmw:bool,
+                kswin:bool,ph:bool,rddm:bool,stepd:bool) -> dict:
     
     """This method returns a dictionary that pairs each detection method with each base classifier from the River package as indicated by the input"""
     
+    #Load all the detectors as indicated by the input 
     detectors = load_frouros_detectors(adwin=adwin,bocd=bocd,cusum=cusum,ddm=ddm,ecdd=ecdd,eddm=eddm,gma=gma,gma_sensitive=gma_sensitive,hddma=hddma,hddmw=hddmw,kswin=kswin,ph=ph,
                                        rddm=rddm,stepd=stepd)
     models = {}
 
+    #Load all baseline classifiers as indicated by the input 
     if nochange:
         models['NoChange_basic_F'] = NoChangeClassifier()
     if majclass:
         models['MajClass_basic_F'] = PriorClassifier()
-    if nb:
+    if nb and basic:
         models['NB_basic_F'] = GaussianNB()
-    if ht:
-        models['HT_basic_F'] = HoeffdingTreeClassifier()
+    if ht and basic:
+        models['HT_basic_F'] = HoeffdingTreeClassifier(nominal_attributes=nominal_attributes)
+    if bole and basic:
+        models['BOLE_basic_F'] = BOLEClassifier(model=HoeffdingTreeClassifier(nominal_attributes=nominal_attributes),seed=seed)
 
+    #Load all combinations of base classifier and detector as indicated by the input by iterating over all relevant detectors
     for detector_name, detector in detectors.items():
+        #Load all required combinations of the detection methods with the naive bayes classifier
         if nb:
-            if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive', 'KSWIN', 'PH']:
+            #Combination with detectors without warning level 
+            if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive','PH'] or 'KSWIN' in detector_name:
                 models['NB_'+detector_name+'_F']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector,train_in_background=False)
+            #Combination with detectors with warning level
             else:
                 models['NB_'+detector_name+'_F']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
+        #Load all required combinations of the detection methods with the Hoeffding tree classifier        
         if ht:
-            if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive', 'KSWIN', 'PH']:
-                models['HT_'+detector_name+'_F']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),
+            #Combination with detectors without warning level 
+            if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive', 'PH'] or 'KSWIN' in detector_name:
+                models['HT_'+detector_name+'_F']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=nominal_attributes),
                                                                            drift_detector=detector,train_in_background=False)
+            #Combination with detectors with warning level
             else:
-                models['HT_'+detector_name+'_F']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),
+                models['HT_'+detector_name+'_F']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=nominal_attributes),
                                                                            drift_detector=detector)
+        #Load all required combinations of the detection methods with the BOLE classifier        
+        if bole:
+            #Combination with detectors without warning level 
+            if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive', 'PH'] or 'KSWIN' in detector_name:
+                models['BOLE_'+detector_name+'_F']=BOLEClassifier(
+                                                        model=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=nominal_attributes),drift_detector=detector,train_in_background=False),
+                                                        seed=seed)
+            #Combination with detectors with warning level
+            else:
+                models['BOLE_'+detector_name+'_F']=BOLEClassifier(
+                                                        model=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(nominal_attributes=nominal_attributes),drift_detector=detector),
+                                                        seed=seed)
+            
     return models
-
-def load_frouros_ensemble(seed:int, ensemble:str='BOLE', nochange=True,majclass=True,nb:bool=True,ht:bool=True,
-                          adwin:bool=True,bocd:bool=True,cusum:bool=True,ddm:bool=True,ecdd:bool=True,eddm:bool=True,gma:bool=True,gma_sensitive:bool=True,hddma:bool=True,
-                          hddmw:bool=True,kswin:bool=True,ph:bool=True,rddm:bool=True,stepd:bool=True) -> dict:
-    
-    """This method returns a dictionary that pairs each detection method with the ensemble classifier BOLE from the River package as indicated by the input"""
-    
-    detectors = load_frouros_detectors(adwin=adwin,bocd=bocd,cusum=cusum,ddm=ddm,ecdd=ecdd,eddm=eddm,gma=gma,gma_sensitive=gma_sensitive,hddma=hddma,hddmw=hddmw,kswin=kswin,ph=ph,
-                                       rddm=rddm,stepd=stepd)
-    models = {}
-    
-    for detector_name, detector in detectors.items():
-        if ensemble == 'BOLE':
-            if nb:
-                models['BOLE+NB_basic_F'] = BOLEClassifier(model=GaussianNB(),seed=seed)
-                if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive', 'KSWIN', 'PH']:
-                    models['BOLE+NB_'+detector_name+'_F']=BOLEClassifier(
-                        model=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector,train_in_background=False),
-                        seed=seed)
-                else:
-                    models['BOLE+NB_'+detector_name+'_F']=BOLEClassifier(
-                        model=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector),
-                        seed=seed)
-            if ht:
-                models['BOLE+HT_basic_F'] = BOLEClassifier(model=HoeffdingTreeClassifier(),seed=seed)
-                if detector_name in ['ADWIN', 'BOCD', 'CUSUM', 'GMA', 'GMA_sensitive', 'KSWIN', 'PH']:
-                    models['BOLE+HT_'+detector_name+'_F']=BOLEClassifier(
-                        model=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector,train_in_background=False),
-                        seed=seed)
-                else:
-                    models['BOLE+HT_'+detector_name+'_F']=BOLEClassifier(
-                        model=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector),
-                        seed=seed)
-    
-    return models
-
 
 
 def load_models_test(nochange=False,majclass=False,nb:bool=False,ht:bool=True,
@@ -159,5 +150,7 @@ def load_models_test(nochange=False,majclass=False,nb:bool=False,ht:bool=True,
             if detector_name in ['EDDM']:
                 models['HT_EDDM_F1']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector)
                 models['HT_EDDM_F2']=DriftRetrainingClassifier(model=HoeffdingTreeClassifier(),drift_detector=detector)
+                models['NB_EDDM_F1']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
+                models['NB_EDDM_F2']=DriftRetrainingClassifier(model=GaussianNB(),drift_detector=detector)
     return models
 

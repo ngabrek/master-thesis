@@ -1,0 +1,50 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+HT_basic_F
+HT_ADWIN_F
+reset
+HT_CUSUM_F
+reset
+HT_DDM_F
+reset
+HT_ECDD_F
+reset
+HT_EDDM_F
+reset
+HT_GMA_F
+reset
+HT_HDDMA_F
+reset
+HT_HDDMW_F
+reset
+HT_KSWIN1_F
+reset
+HT_KSWIN51_F
+reset
+HT_KSWIN101_F
+reset
+HT_KSWIN151_F
+reset
+HT_KSWIN201_F
+reset
+HT_PH_F
+reset
+HT_RDDM_F
+reset
+HT_STEPD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n272
+Job ID: 22945005
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 08:23:54
+CPU Efficiency: 49.52% of 16:57:34 core-walltime
+Job Wall-clock time: 08:28:47
+Memory Utilized: 821.07 MB
+Memory Efficiency: 36.49% of 2.20 GB

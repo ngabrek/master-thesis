@@ -1,0 +1,18 @@
+slurmstepd: error: *** JOB 22938053 ON uc2n414 CANCELLED AT 2023-12-15T12:17:30 DUE TO TIME LIMIT ***
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n414
+Job ID: 22938053
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: TIMEOUT (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 00:00:00
+CPU Efficiency: 0.00% of 6-00:00:12 core-walltime
+Job Wall-clock time: 3-00:00:06
+Memory Utilized: 1.88 GB
+Memory Efficiency: 85.50% of 2.20 GB
+
+# finished until seed 101, so further experiments for seeds 151 and 201 required

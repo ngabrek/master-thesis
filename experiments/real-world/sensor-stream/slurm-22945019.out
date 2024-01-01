@@ -1,0 +1,35 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/frouros_adapted/stepd.py:250: RuntimeWarning: divide by zero encountered in scalar divide
+  statistic = (
+BOLE_STEPD_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_STEPD_F
+reset
+BOLE_STEPD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n267
+Job ID: 22945019
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-02:24:03
+CPU Efficiency: 49.69% of 2-05:07:38 core-walltime
+Job Wall-clock time: 1-02:33:49
+Memory Utilized: 126.62 MB
+Memory Efficiency: 5.63% of 2.20 GB

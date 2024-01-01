@@ -1,0 +1,2 @@
+,dataset,model,accuracy,cohen kappa,time,memory,drifts
+0,SensorStream,BOLE_CUSUM_F,0.5773690626461279,0.5684628859088652,09:29:30,727 KB,[]

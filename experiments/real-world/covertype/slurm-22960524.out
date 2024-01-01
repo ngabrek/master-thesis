@@ -1,0 +1,17 @@
+BOLE_BOCD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n322
+Job ID: 22960524
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 02:43:40
+CPU Efficiency: 49.55% of 05:30:18 core-walltime
+Job Wall-clock time: 02:45:09
+Memory Utilized: 628.52 MB
+Memory Efficiency: 27.93% of 2.20 GB

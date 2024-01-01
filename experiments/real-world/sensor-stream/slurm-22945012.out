@@ -1,0 +1,25 @@
+BOLE_EDDM_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_EDDM_F
+reset
+BOLE_EDDM_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n268
+Job ID: 22945012
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 1-18:03:17
+CPU Efficiency: 49.78% of 3-12:28:52 core-walltime
+Job Wall-clock time: 1-18:14:26
+Memory Utilized: 311.19 MB
+Memory Efficiency: 13.83% of 2.20 GB

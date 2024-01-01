@@ -1,0 +1,25 @@
+BOLE_HDDMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMA_F
+reset
+BOLE_HDDMA_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n267
+Job ID: 22945014
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 2-04:03:07
+CPU Efficiency: 49.76% of 4-08:36:32 core-walltime
+Job Wall-clock time: 2-04:18:16
+Memory Utilized: 119.91 MB
+Memory Efficiency: 5.33% of 2.20 GB

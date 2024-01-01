@@ -1,0 +1,2 @@
+,dataset,model,accuracy,cohen kappa,time,memory,drifts
+0,SensorStream,BOLE_HDDMW_F,0.5182254993913872,0.508102021622337,09:44:25,2.24 MB,[]

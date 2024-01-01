@@ -1,0 +1,2 @@
+,dataset,model,accuracy,cohen kappa,time,memory,drifts
+0,Covertype,BOLE_BOCD_F,0.928774154017738,0.8853141294435323,03:23:44,46.5 MB,[]

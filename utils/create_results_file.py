@@ -12,23 +12,26 @@ from utils.confidence_interval import compute_confidence_interval
 
 def create_results_file(folder_path:str):
     
-    """ This method merges all the results and creates a respective files with the final results and their confidence intervals"""
+    """ This method merges all the results and creates the respective files with the final results and their confidence intervals"""
+    
     #save current path to go back later
     current_path = os.getcwd()
     
-    #change path to directory that contains the csv files
+    #change path to directory that contains the csv files with the results
     os.chdir(folder_path)
     csv_files = [f for f in os.listdir() if f.endswith('.csv')]
     
-    #dfs = []
+    #create an empty dataframe where all the result data is merged
     df_all = pd.DataFrame()
     
+    #iterate over all the results files and store the data in the dataframe 
     for csv in csv_files:
         df = read_results_from_csv(csv)
         df_all = pd.concat([df_all, df],axis=0,ignore_index=True)
-
       
     print(len(df_all))
+    
+    #get rid of potential duplicates that can occur because of recalculations 
     #NB
     df_nb = df_all[df_all['model']=='NB_basic_F']
     df_nb_no_duplicates = df_nb.drop_duplicates(subset=['dataset', 'model'])
@@ -52,20 +55,26 @@ def create_results_file(folder_path:str):
     df_rest = df_all[(df_all['model']!='NB_basic_F') & (df_all['model']!='HT_basic_F') & (df_all['model']!='NoChange_basic_F') & (df_all['model']!='MajClass_basic_F') & 
                      (df_all['model']!='BOLE+HT_basic_F')]
     
-    
+    #concet all the dataframe without duplicates to one dataframe
     df_all_no_duplicates = pd.concat([df_nb_no_duplicates, df_ht_no_duplicates, df_nc_no_duplicates, df_mc_no_duplicates,df_bole_no_duplicates, df_rest],axis=0,ignore_index=True)
-    df_all_no_duplicates = df_all_no_duplicates[df_all_no_duplicates['model'].str.contains('GMA_sensitive')==False]
+    #df_all_no_duplicates = df_all_no_duplicates[df_all_no_duplicates['model'].str.contains('GMA_sensitive')==False]
     
+    #check if there had been duplicates
     print(len(df_all_no_duplicates))
     
+    #compute the confidence intervals for the results 
     df_conf = compute_confidence_interval(df_all_no_duplicates)
     
+    #transform the results of the confidence interval computation into a dataframe
     final_df= create_dataframe(df_conf)
+    
+    #check if the correct number of models had been aggregated
     print(len(final_df))
 
-    #reset path 
+    #reset the path 
     os.chdir(current_path)
 
+    #return the dataframe with the final confidence intervals
     return final_df
        
       
@@ -74,6 +83,7 @@ def create_results_file(folder_path:str):
 def create_dataframe(data:pd.DataFrame()) -> pd.DataFrame():
     
     """ This method converts a given dataframe in the appropriate formate for the final results file"""
+    
     dataframe = pd.DataFrame(columns=['generator','drift_type','size','classifier','detector','accuracy_mean', 'accuracy_conf',
                                            'cohen_kappas_mean', 'cohen_kappas_conf',
                                            'time_mean', 'time_conf',
