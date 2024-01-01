@@ -1,0 +1,55 @@
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+/pfs/work7/workspace/scratch/ma_ngabrek-master-thesis/master-thesis/river_adapted/concept_drift_stream.py:144: RuntimeWarning: overflow encountered in exp
+  probability_drift = 1.0 / (1.0 + np.exp(v))
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+BOLE_ECDD_F
+reset
+
+============================= JOB FEEDBACK =============================
+
+NodeName=uc2n268
+Job ID: 22992088
+Cluster: uc2
+User/Group: ma_ngabrek/ma_ma
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 2
+CPU Utilized: 02:24:01
+CPU Efficiency: 49.60% of 04:50:20 core-walltime
+Job Wall-clock time: 02:25:10
+Memory Utilized: 121.31 MB
+Memory Efficiency: 5.39% of 2.20 GB

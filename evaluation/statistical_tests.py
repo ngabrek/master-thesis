@@ -226,7 +226,7 @@ def get_avg_rank_insects(metric:str, ascending=True, bal:bool=True, imbal:bool=T
     """ This method computes the average ranks for the statistical test of the respective models over the Insects datasets"""
     dict_detectors = create_dict_detectors_insects(metric, bal=bal, imbal=imbal, classifiers=classifiers, drifts=drifts, detectors=detectors)
     
-    if 'incremental' in drifts and 'BOCD' in detectors and 'BOLE' in classifiers:
+    if 'incremental' in drifts and 'BOCD' in detectors and 'BOLE' in classifiers and bal:
         dict_detectors['BOCD*'] = dict_detectors.pop('BOCD')
                 
     data = (
